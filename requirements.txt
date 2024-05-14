@@ -22,6 +22,7 @@ greenlet==3.0.3
 grpcio==1.63.0
 grpcio-tools==1.63.0
 idna==3.6
+iniconfig==2.0.0
 injector==0.21.0
 itsdangerous==2.2.0
 Jinja2==3.1.4
@@ -35,6 +36,7 @@ packaging==24.0
 pathos==0.3.2
 pillow==10.2.0
 platformdirs==4.1.0
+pluggy==1.5.0
 pox==0.3.4
 ppft==1.7.6.8
 protobuf==5.26.1
@@ -42,6 +44,7 @@ pycparser==2.21
 PyExecJS==1.5.1
 PyJWT==2.8.0
 PyPDF2==3.0.1
+pytest==8.2.0
 PyYAML==6.0.1
 requests==2.31.0
 setuptools==69.0.2
