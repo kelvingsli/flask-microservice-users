@@ -51,7 +51,7 @@ class UserAccountService(useraccount_pb2_grpc.UserAccountServicer):
         return response
     
     @flask_appctx
-    def LoginUser(self, request, context):  
+    def LoginUser(self, request, context):
         isAuthenticated = False
         res_User = useraccount_pb2.User()
         try:
@@ -63,7 +63,20 @@ class UserAccountService(useraccount_pb2_grpc.UserAccountServicer):
         except Exception as err:
             _logger.error(err)
         return useraccount_pb2.LoginUserResponse(IsSuccess=isAuthenticated, User=res_User)
-
+    
+    @flask_appctx
+    def UpdatePassword(self, request, context):
+        isSuccessful = False
+        res_User = useraccount_pb2.User()
+        try:
+            svc = user_service.UserService()
+            data = svc.update_password(user_id=request.UserId, password=request.Password)
+            if data.issuccess:
+                isSuccessful = data.issuccess
+                res_User = useraccount_pb2.User(UserId=data.id, FirstName=data.firstname, LastName=data.lastname, Email=data.email)
+        except Exception as err:
+            _logger.error(err)
+        return useraccount_pb2.UpdatePasswordResponse(IsSuccess=isSuccessful, User=res_User)
     
 def serve(port=50051):
     try:

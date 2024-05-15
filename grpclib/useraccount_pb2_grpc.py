@@ -55,6 +55,11 @@ class UserAccountStub(object):
                 request_serializer=grpclib_dot_useraccount__pb2.LoginUserRequest.SerializeToString,
                 response_deserializer=grpclib_dot_useraccount__pb2.LoginUserResponse.FromString,
                 _registered_method=True)
+        self.UpdatePassword = channel.unary_unary(
+                '/useraccount.UserAccount/UpdatePassword',
+                request_serializer=grpclib_dot_useraccount__pb2.UpdatePasswordRequest.SerializeToString,
+                response_deserializer=grpclib_dot_useraccount__pb2.UpdatePasswordResponse.FromString,
+                _registered_method=True)
 
 
 class UserAccountServicer(object):
@@ -79,6 +84,12 @@ class UserAccountServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdatePassword(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_UserAccountServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -96,6 +107,11 @@ def add_UserAccountServicer_to_server(servicer, server):
                     servicer.LoginUser,
                     request_deserializer=grpclib_dot_useraccount__pb2.LoginUserRequest.FromString,
                     response_serializer=grpclib_dot_useraccount__pb2.LoginUserResponse.SerializeToString,
+            ),
+            'UpdatePassword': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdatePassword,
+                    request_deserializer=grpclib_dot_useraccount__pb2.UpdatePasswordRequest.FromString,
+                    response_serializer=grpclib_dot_useraccount__pb2.UpdatePasswordResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -179,6 +195,33 @@ class UserAccount(object):
             '/useraccount.UserAccount/LoginUser',
             grpclib_dot_useraccount__pb2.LoginUserRequest.SerializeToString,
             grpclib_dot_useraccount__pb2.LoginUserResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def UpdatePassword(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/useraccount.UserAccount/UpdatePassword',
+            grpclib_dot_useraccount__pb2.UpdatePasswordRequest.SerializeToString,
+            grpclib_dot_useraccount__pb2.UpdatePasswordResponse.FromString,
             options,
             channel_credentials,
             insecure,
