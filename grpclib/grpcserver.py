@@ -2,7 +2,7 @@ from concurrent import futures
 import grpc
 import logging
 
-import app
+from app import app
 import grpclib.useraccount_pb2_grpc as useraccount_pb2_grpc
 import grpclib.useraccount_pb2 as useraccount_pb2
 from services import user_service
@@ -17,7 +17,7 @@ class UserAccountService(useraccount_pb2_grpc.UserAccountServicer):
         Decorator to inject app context into all grpc method calls
         '''
         def inner(*args, **kwargs):
-            with app.app.app_context():
+            with app.app_context():
                 return f(*args, **kwargs)
         return inner
 
