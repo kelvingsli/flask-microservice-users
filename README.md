@@ -1,5 +1,8 @@
 ## Flask User Service
 ---
+### Summary
+Simple user microservice with basic methods. This service connects to a database and uses gRPC for inter-service communications
+---
 ### Setup Virtual Environment
 Install virtualenv.
 ```
