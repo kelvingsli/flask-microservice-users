@@ -25,7 +25,7 @@ app.register_blueprint(models_bp)
 from api import bp as api_bp
 app.register_blueprint(api_bp)
 
-from repository import bp as repository_bp
+from database import bp as repository_bp
 app.register_blueprint(repository_bp)
 
 def create_app():

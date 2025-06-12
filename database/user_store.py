@@ -2,7 +2,7 @@ from app import db
 from models.entity.user import User
 from models.dto.user_dto import UserDto
 
-class UsersRepository:
+class UserStore:
 
     def get_user(self, user_id):
         user = User()

@@ -2,4 +2,4 @@ from flask import Blueprint
 
 bp = Blueprint('repository', __name__)
 
-from repository import user_repository
+from database import user_store
