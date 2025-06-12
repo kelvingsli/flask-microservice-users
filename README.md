@@ -21,6 +21,11 @@ Python package dependencies are contained in the requirements.txt. Run the insta
 ```
 pip install -r requirements.txt
 ```
+
+---
+### Configuration
+Use the `sample-config.yaml` and update logging and jwt settings. Save the settings as `config.yaml`
+
 ---
 ### gRPC Stubs
 Ensure the protobuf IDL are located in the protos folder. Run the following command to generate the client and server stubs in the grpclib folder.
