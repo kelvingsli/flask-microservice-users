@@ -24,7 +24,7 @@ pip install -r requirements.txt
 
 ---
 ### Configuration
-Use the `sample-config.yaml` and update logging and jwt settings. Save the settings as `config.yaml`
+Use the `sample-config.yaml` and update logging and database settings. Save the settings as `config.yaml`
 
 ---
 ### gRPC Stubs

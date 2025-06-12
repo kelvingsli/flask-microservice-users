@@ -28,5 +28,5 @@ logging-config:
         handlers: ['wsgi', 'time-rotate']
 
 database:
-    url: 'postgresql://postgres:%s@localhost:5432/hrb'
-    password: 'Abcd@1234'
+    url: 'postgresql://{your-db-user}:%s@localhost:5432/{your-default-database}'
+    password: ''
